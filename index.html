@@ -5,108 +5,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Carta Secreta 💌</title>
+    <title>Uma carta espera por você 💌</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
+    <main class="container">
 
-        <div class="envelope">💌</div>
+        <div class="envelope">
+            💌
+        </div>
 
-        <h1>Carta Secreta</h1>
+        <h1>
+            Uma carta espera por você
+        </h1>
 
-        <p class="subtitle">
-            Existe uma carta esperando pelo momento certo...
+        <p class="subtitulo">
+            Mas ela só pode ser aberta no lugar certo...
         </p>
 
 
-        <!-- PRIMEIRA TELA -->
+        <!-- CARTA BLOQUEADA -->
 
-        <div id="inicio" class="card">
+        <section id="bloqueada" class="card">
 
-            <div class="icon">🔐</div>
-
-            <h2>O lugar secreto</h2>
-
-            <p>
-                Primeiro, fique exatamente no lugar
-                onde você quer guardar a carta.
-            </p>
-
-            <button onclick="registrarLugar()">
-                📍 Registrar este lugar
-            </button>
-
-            <p id="mensagem"></p>
-
-        </div>
-
-
-        <!-- SEGUNDA TELA -->
-
-        <div id="teste" class="card escondido">
-
-            <div class="icon">📍</div>
-
-            <h2>Local registrado!</h2>
-
-            <p>
-                Agora você pode se afastar do lugar.
-            </p>
-
-            <div class="info">
-
-                <p>
-                    🎯 Distância necessária:
-                    <strong>100 cm</strong>
-                </p>
-
-                <p id="precisao">
-                    📡 Precisão do GPS: verificando...
-                </p>
-
+            <div class="cadeado">
+                🔒
             </div>
 
-            <button onclick="verificarLugar()">
-                🔎 Verificar minha localização
+            <h2>
+                Carta bloqueada
+            </h2>
+
+            <p>
+                Existe uma carta esperando por você.
+            </p>
+
+            <p class="destino">
+                📍 Destino:
+                <strong>Umuarama - PR</strong>
+            </p>
+
+            <p class="explicacao">
+                Ela só será liberada quando você estiver
+                dentro da cidade.
+            </p>
+
+            <button onclick="verificarLocalizacao()">
+                📍 Verificar minha localização
             </button>
 
-            <p id="resultado"></p>
+            <p id="status"></p>
 
-        </div>
+        </section>
 
 
-        <!-- CARTA -->
+        <!-- CARTA DESBLOQUEADA -->
 
-        <div id="carta" class="card carta escondido">
+        <section id="desbloqueada" class="card carta">
 
-            <div class="carta-icon">
-                💌
+            <div class="celebracao">
+                ✨💌✨
             </div>
 
-            <h2>Carta desbloqueada!</h2>
+            <h2>
+                Você chegou!
+            </h2>
+
+            <p class="mensagem-chegada">
+                A localização foi confirmada.
+            </p>
 
             <div class="papel">
 
-                <p>Oi, Noah. 💙</p>
-
                 <p>
-                    Se você está vendo essa carta,
-                    significa que chegou ao lugar certo.
+                    Oi, Noah. 💙
                 </p>
 
                 <p>
-                    Essa pequena surpresa estava
-                    esperando exatamente por esse momento.
+                    Se você está lendo isso,
+                    significa que finalmente chegou.
                 </p>
 
                 <p>
-                    Talvez pareça só uma carta...
-                    mas agora você sabe que algumas
-                    coisas ficam muito mais especiais
+                    Essa carta estava esperando por você
+                    exatamente aqui.
+                </p>
+
+                <p>
+                    Talvez seja estranho pensar que uma
+                    simples página da internet conseguiu
+                    esperar você chegar até uma cidade
+                    inteira...
+                </p>
+
+                <p>
+                    Mas algumas surpresas ficam melhores
                     quando precisam ser encontradas.
                 </p>
 
@@ -116,21 +112,18 @@
 
             </div>
 
-        </div>
+        </section>
 
 
         <footer>
-            Um pequeno segredo escondido aqui ✨
+            Um pequeno segredo escondido no mapa ✨
         </footer>
 
-    </div>
+    </main>
 
 
     <script src="script.js"></script>
 
 </body>
 
-</html>pt src="script.js"></script>
-
-</body>
 </html>
