@@ -2,124 +2,199 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Uma carta espera por você 💌</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Uma carta para você 💌</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
     <main class="container">
 
+
+        <!-- ENVELOPE -->
+
         <div class="envelope">
             💌
         </div>
 
+
+        <!-- TÍTULO -->
+
         <h1>
-            Uma carta espera por você
+            Uma carta para você
         </h1>
 
+
         <p class="subtitulo">
-            Mas ela só pode ser aberta no lugar certo...
+            Mas existe uma condição para abri-la...
         </p>
 
 
-        <!-- CARTA BLOQUEADA -->
 
-        <section id="bloqueada" class="card">
+        <!-- ========================= -->
+        <!-- CARTA BLOQUEADA -->
+        <!-- ========================= -->
+
+        <section
+            id="cartaBloqueada"
+            class="card">
 
             <div class="cadeado">
                 🔒
             </div>
 
+
             <h2>
-                Carta bloqueada
+                Ainda não...
             </h2>
+
 
             <p>
                 Existe uma carta esperando por você.
             </p>
 
-            <p class="destino">
-                📍 Destino:
-                <strong>Umuarama - PR</strong>
-            </p>
+
+            <div class="destino">
+
+                <span>
+                    📍 O lugar secreto é:
+                </span>
+
+                <strong id="nomeCidade">
+                    SUA CIDADE
+                </strong>
+
+            </div>
+
 
             <p class="explicacao">
-                Ela só será liberada quando você estiver
-                dentro da cidade.
+
+                A carta só será liberada quando
+                você chegar ao lugar certo.
+
             </p>
 
-            <button onclick="verificarLocalizacao()">
+
+            <button
+                onclick="verificarLocalizacao()">
+
                 📍 Verificar minha localização
+
             </button>
 
-            <p id="status"></p>
+
+            <p
+                id="status"
+                class="status">
+
+            </p>
 
         </section>
 
 
+
+        <!-- ========================= -->
         <!-- CARTA DESBLOQUEADA -->
+        <!-- ========================= -->
 
-        <section id="desbloqueada" class="card carta">
+        <section
+            id="cartaDesbloqueada"
+            class="card carta">
 
+            
             <div class="celebracao">
-                ✨💌✨
+
+                ✨
+                💌
+                ✨
+
             </div>
 
+
             <h2>
-                Você chegou!
+                Você chegou.
             </h2>
 
-            <p class="mensagem-chegada">
+
+            <p class="chegada">
+
                 A localização foi confirmada.
+
             </p>
 
+
             <div class="papel">
+
 
                 <p>
                     Oi, Noah. 💙
                 </p>
 
+
                 <p>
                     Se você está lendo isso,
-                    significa que finalmente chegou.
+                    significa que chegou até aqui.
                 </p>
 
-                <p>
-                    Essa carta estava esperando por você
-                    exatamente aqui.
-                </p>
 
                 <p>
-                    Talvez seja estranho pensar que uma
-                    simples página da internet conseguiu
-                    esperar você chegar até uma cidade
-                    inteira...
+                    Essa carta estava esperando
+                    exatamente por esse momento.
                 </p>
 
+
                 <p>
-                    Mas algumas surpresas ficam melhores
-                    quando precisam ser encontradas.
+                    Talvez seja engraçado pensar que
+                    uma carta poderia ficar escondida
+                    em uma cidade inteira.
                 </p>
+
+
+                <p>
+                    Mas agora você encontrou.
+                </p>
+
+
+                <p>
+                    E algumas coisas ficam muito
+                    mais especiais quando precisam
+                    ser encontradas.
+                </p>
+
 
                 <p class="assinatura">
+
                     Com carinho. 💙
+
                 </p>
 
+
             </div>
+
 
         </section>
 
 
+
         <footer>
-            Um pequeno segredo escondido no mapa ✨
+
+            Um pequeno segredo esperando
+            no lugar certo ✨
+
         </footer>
 
+
     </main>
+
 
 
     <script src="script.js"></script>
