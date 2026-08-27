@@ -1,50 +1,107 @@
-let localSecreto = null;
+// ============================================
+// CARTA SECRETA POR LOCALIZAÇÃO
+// ============================================
 
-const distanciaPermitida = 1; // 1 metro = 100 cm
+
+// 100 centímetros = 1 metro
+
+const distanciaPermitida = 1;
 
 
-function definirLocal() {
+// Guarda o lugar secreto
 
-    const status = document.getElementById("status");
+let lugarSecreto = null;
+
+
+// ============================================
+// REGISTRAR O LUGAR
+// ============================================
+
+function registrarLugar() {
+
+    const mensagem =
+        document.getElementById("mensagem");
+
 
     if (!navigator.geolocation) {
 
-        status.innerText =
-            "Seu navegador não suporta localização.";
+        mensagem.innerText =
+            "❌ Seu navegador não suporta localização.";
 
         return;
+
     }
 
-    status.innerText =
-        "📍 Descobrindo onde você está...";
+
+    mensagem.innerText =
+        "📡 Pegando sua localização...";
+
 
     navigator.geolocation.getCurrentPosition(
 
         function(posicao) {
 
-            localSecreto = {
+            const latitude =
+                posicao.coords.latitude;
 
-                latitude: posicao.coords.latitude,
+            const longitude =
+                posicao.coords.longitude;
 
-                longitude: posicao.coords.longitude
+            const precisao =
+                posicao.coords.accuracy;
+
+
+            lugarSecreto = {
+
+                latitude: latitude,
+
+                longitude: longitude
 
             };
 
-            document.getElementById("bloqueada").style.display =
-                "none";
 
-            document.getElementById("teste").style.display =
-                "block";
+            document.getElementById("inicio")
+                .classList.add("escondido");
 
-            document.getElementById("statusTeste").innerText =
+
+            document.getElementById("teste")
+                .classList.remove("escondido");
+
+
+            document.getElementById("precisao")
+                .innerText =
+                "📡 Precisão atual do GPS: " +
+                precisao.toFixed(1) +
+                " metros";
+
+
+            document.getElementById("resultado")
+                .innerText =
                 "✨ Lugar secreto registrado!";
+
+
+            console.log(
+                "Latitude:",
+                latitude
+            );
+
+            console.log(
+                "Longitude:",
+                longitude
+            );
+
+            console.log(
+                "Precisão:",
+                precisao
+            );
 
         },
 
-        function() {
+        function(erro) {
 
-            status.innerText =
-                "⚠️ Você precisa permitir o acesso à localização.";
+            mensagem.innerText =
+                "⚠️ Não consegui acessar sua localização. " +
+                "Permita o acesso ao GPS e tente novamente.";
 
         },
 
@@ -52,7 +109,7 @@ function definirLocal() {
 
             enableHighAccuracy: true,
 
-            timeout: 10000,
+            timeout: 15000,
 
             maximumAge: 0
 
@@ -63,56 +120,90 @@ function definirLocal() {
 }
 
 
-function verificarLocal() {
 
-    const status =
-        document.getElementById("statusTeste");
+// ============================================
+// VERIFICAR LOCAL
+// ============================================
 
-    if (!localSecreto) {
+function verificarLugar() {
 
-        status.innerText =
-            "Primeiro defina o lugar secreto.";
+    const resultado =
+        document.getElementById("resultado");
+
+
+    if (!lugarSecreto) {
+
+        resultado.innerText =
+            "❌ Primeiro registre o lugar.";
 
         return;
 
     }
 
-    status.innerText =
-        "📡 Verificando sua localização...";
+
+    resultado.innerText =
+        "📡 Verificando localização...";
+
 
     navigator.geolocation.getCurrentPosition(
 
         function(posicao) {
 
-            const distancia = calcularDistancia(
+            const latitudeAtual =
+                posicao.coords.latitude;
 
-                posicao.coords.latitude,
+            const longitudeAtual =
+                posicao.coords.longitude;
 
-                posicao.coords.longitude,
+            const precisao =
+                posicao.coords.accuracy;
 
-                localSecreto.latitude,
 
-                localSecreto.longitude
+            const distancia =
+                calcularDistancia(
 
-            );
+                    latitudeAtual,
+
+                    longitudeAtual,
+
+                    lugarSecreto.latitude,
+
+                    lugarSecreto.longitude
+
+                );
+
+
+            document.getElementById("precisao")
+                .innerText =
+                "📡 Precisão atual: " +
+                precisao.toFixed(1) +
+                " metros";
+
 
             console.log(
                 "Distância:",
-                distancia.toFixed(2),
+                distancia,
                 "metros"
             );
 
+
+            // ====================================
+            // DENTRO DO RAIO
+            // ====================================
 
             if (distancia <= distanciaPermitida) {
 
                 abrirCarta();
 
-            } else {
+            }
 
-                status.innerText =
-                    "🔒 Ainda não! Você está a " +
+            else {
+
+                resultado.innerText =
+                    "🔒 Carta bloqueada. " +
+                    "Você está a " +
                     distancia.toFixed(2) +
-                    " metros do local.";
+                    " metros do lugar secreto.";
 
             }
 
@@ -120,8 +211,8 @@ function verificarLocal() {
 
         function() {
 
-            status.innerText =
-                "⚠️ Não consegui acessar sua localização.";
+            resultado.innerText =
+                "⚠️ Não consegui encontrar sua localização.";
 
         },
 
@@ -129,7 +220,7 @@ function verificarLocal() {
 
             enableHighAccuracy: true,
 
-            timeout: 10000,
+            timeout: 15000,
 
             maximumAge: 0
 
@@ -140,51 +231,98 @@ function verificarLocal() {
 }
 
 
+
+// ============================================
+// CALCULAR DISTÂNCIA
+// ============================================
+
 function calcularDistancia(
+
     lat1,
     lon1,
     lat2,
     lon2
+
 ) {
+
 
     const R = 6371000;
 
+
     const dLat =
-        (lat2 - lat1) * Math.PI / 180;
+        (lat2 - lat1)
+        * Math.PI / 180;
+
 
     const dLon =
-        (lon2 - lon1) * Math.PI / 180;
+        (lon2 - lon1)
+        * Math.PI / 180;
+
 
     const a =
 
-        Math.sin(dLat / 2) ** 2 +
+        Math.sin(dLat / 2) *
+        Math.sin(dLat / 2)
 
-        Math.cos(lat1 * Math.PI / 180) *
+        +
 
-        Math.cos(lat2 * Math.PI / 180) *
+        Math.cos(
+            lat1 * Math.PI / 180
+        )
 
-        Math.sin(dLon / 2) ** 2;
+        *
+
+        Math.cos(
+            lat2 * Math.PI / 180
+        )
+
+        *
+
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+
 
     const c =
-        2 * Math.atan2(
+
+        2 *
+
+        Math.atan2(
+
             Math.sqrt(a),
+
             Math.sqrt(1 - a)
+
         );
+
 
     return R * c;
 
 }
 
 
+
+// ============================================
+// ABRIR CARTA
+// ============================================
+
 function abrirCarta() {
 
-    document.getElementById("teste").style.display =
-        "none";
 
-    document.getElementById("carta").style.display =
-        "block";
+    document.getElementById("teste")
+        .classList.add("escondido");
 
-    document.querySelector(".subtitulo").innerText =
-        "Você chegou ao lugar certo... 💙";
+
+    document.getElementById("carta")
+        .classList.remove("escondido");
+
+
+    document.querySelector(".subtitle")
+        .innerText =
+        "Você encontrou o lugar secreto. 💙";
+
+
+    console.log(
+        "💌 CARTA DESBLOQUEADA!"
+    );
 
 }
