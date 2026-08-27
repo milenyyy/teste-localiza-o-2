@@ -1,76 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Carta Secreta 💌</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main class="container">
+    <div class="container">
 
         <div class="envelope">💌</div>
 
-        <h1>Uma carta secreta</h1>
+        <h1>Carta Secreta</h1>
 
-        <p class="subtitulo">
-            Essa carta só pode ser aberta no lugar certo...
+        <p class="subtitle">
+            Existe uma carta esperando pelo momento certo...
         </p>
 
-        <section id="bloqueada" class="card">
 
-            <div class="cadeado">🔒</div>
+        <!-- PRIMEIRA TELA -->
 
-            <h2>Carta bloqueada</h2>
+        <div id="inicio" class="card">
 
-            <p>
-                Primeiro precisamos descobrir onde você está.
-            </p>
+            <div class="icon">🔐</div>
 
-            <button onclick="definirLocal()">
-                📍 Estou no lugar secreto
-            </button>
-
-            <p id="status"></p>
-
-        </section>
-
-
-        <section id="teste" class="card" style="display:none;">
-
-            <div class="mapa">📍</div>
-
-            <h2>Local secreto definido!</h2>
+            <h2>O lugar secreto</h2>
 
             <p>
-                Agora se afaste um pouquinho e clique no botão.
+                Primeiro, fique exatamente no lugar
+                onde você quer guardar a carta.
             </p>
 
-            <p class="distancia">
-                A carta será liberada quando você estiver
-                a até <strong>100 cm</strong>.
-            </p>
-
-            <button onclick="verificarLocal()">
-                🔎 Verificar localização
+            <button onclick="registrarLugar()">
+                📍 Registrar este lugar
             </button>
 
-            <p id="statusTeste"></p>
+            <p id="mensagem"></p>
 
-        </section>
+        </div>
 
 
-        <section id="carta" class="card carta">
+        <!-- SEGUNDA TELA -->
 
-            <div class="cartaEmoji">💌✨</div>
+        <div id="teste" class="card escondido">
 
-            <h2>Você conseguiu!</h2>
+            <div class="icon">📍</div>
 
-            <div class="texto">
+            <h2>Local registrado!</h2>
 
-                <p>Oi, Noah... 💙</p>
+            <p>
+                Agora você pode se afastar do lugar.
+            </p>
+
+            <div class="info">
+
+                <p>
+                    🎯 Distância necessária:
+                    <strong>100 cm</strong>
+                </p>
+
+                <p id="precisao">
+                    📡 Precisão do GPS: verificando...
+                </p>
+
+            </div>
+
+            <button onclick="verificarLugar()">
+                🔎 Verificar minha localização
+            </button>
+
+            <p id="resultado"></p>
+
+        </div>
+
+
+        <!-- CARTA -->
+
+        <div id="carta" class="card carta escondido">
+
+            <div class="carta-icon">
+                💌
+            </div>
+
+            <h2>Carta desbloqueada!</h2>
+
+            <div class="papel">
+
+                <p>Oi, Noah. 💙</p>
 
                 <p>
                     Se você está vendo essa carta,
@@ -78,12 +99,15 @@
                 </p>
 
                 <p>
-                    Algumas coisas precisam acontecer
-                    exatamente no momento certo.
+                    Essa pequena surpresa estava
+                    esperando exatamente por esse momento.
                 </p>
 
                 <p>
-                    E essa carta estava esperando por você.
+                    Talvez pareça só uma carta...
+                    mas agora você sabe que algumas
+                    coisas ficam muito mais especiais
+                    quando precisam ser encontradas.
                 </p>
 
                 <p class="assinatura">
@@ -92,15 +116,21 @@
 
             </div>
 
-        </section>
+        </div>
+
 
         <footer>
-            Um pequeno segredo escondido na internet ✨
+            Um pequeno segredo escondido aqui ✨
         </footer>
 
-    </main>
+    </div>
+
 
     <script src="script.js"></script>
+
+</body>
+
+</html>pt src="script.js"></script>
 
 </body>
 </html>
