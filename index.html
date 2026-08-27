@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Secreta 💌</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="envelope">💌</div>
+
+        <h1>Uma carta secreta</h1>
+
+        <p class="subtitulo">
+            Essa carta só pode ser aberta no lugar certo...
+        </p>
+
+        <section id="bloqueada" class="card">
+
+            <div class="cadeado">🔒</div>
+
+            <h2>Carta bloqueada</h2>
+
+            <p>
+                Primeiro precisamos descobrir onde você está.
+            </p>
+
+            <button onclick="definirLocal()">
+                📍 Estou no lugar secreto
+            </button>
+
+            <p id="status"></p>
+
+        </section>
+
+
+        <section id="teste" class="card" style="display:none;">
+
+            <div class="mapa">📍</div>
+
+            <h2>Local secreto definido!</h2>
+
+            <p>
+                Agora se afaste um pouquinho e clique no botão.
+            </p>
+
+            <p class="distancia">
+                A carta será liberada quando você estiver
+                a até <strong>100 cm</strong>.
+            </p>
+
+            <button onclick="verificarLocal()">
+                🔎 Verificar localização
+            </button>
+
+            <p id="statusTeste"></p>
+
+        </section>
+
+
+        <section id="carta" class="card carta">
+
+            <div class="cartaEmoji">💌✨</div>
+
+            <h2>Você conseguiu!</h2>
+
+            <div class="texto">
+
+                <p>Oi, Noah... 💙</p>
+
+                <p>
+                    Se você está vendo essa carta,
+                    significa que chegou ao lugar certo.
+                </p>
+
+                <p>
+                    Algumas coisas precisam acontecer
+                    exatamente no momento certo.
+                </p>
+
+                <p>
+                    E essa carta estava esperando por você.
+                </p>
+
+                <p class="assinatura">
+                    Com carinho. 💙
+                </p>
+
+            </div>
+
+        </section>
+
+        <footer>
+            Um pequeno segredo escondido na internet ✨
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
