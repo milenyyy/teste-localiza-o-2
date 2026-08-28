@@ -5,199 +5,422 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Uma carta para você 💌</title>
+    <title>Dear Noah 🖤</title>
 
     <link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
 
-    <main class="container">
+
+<!-- =====================================================
+     PARTE 1 — A CARTA
+===================================================== -->
+
+<section class="inicio" id="inicio">
+
+    <div class="inicio-conteudo">
+
+        <p class="subtitulo">UMA PEQUENA CARTA</p>
+
+        <h1>Dear Noah</h1>
+
+        <p class="frase">
+            Algumas coisas são difíceis de dizer...
+            então talvez seja melhor escrever.
+        </p>
+
+        <button class="botao" onclick="abrirCarta()">
+            💌 Abrir carta
+        </button>
+
+    </div>
+
+</section>
 
 
-        <!-- ENVELOPE -->
+<!-- =====================================================
+     CARTA
+===================================================== -->
 
-        <div class="envelope">
-            💌
+<section class="carta" id="carta">
+
+    <div class="papel">
+
+        <p class="data">
+            Para Noah,
+        </p>
+
+        <h2>Querido Noah,</h2>
+
+        <p>
+            Talvez você não esperasse encontrar uma carta
+            escondida em forma de site.
+        </p>
+
+        <p>
+            Mas algumas mensagens merecem mais do que
+            uma simples mensagem enviada pelo celular.
+        </p>
+
+        <p>
+            Então fiz este pequeno lugar para guardar
+            algumas palavras, lembranças e momentos.
+        </p>
+
+        <p class="texto-quatro">
+
+            Meu bem, não sou boa com palavras como um certo
+            poeta aí, mas cada palavra dessa carta será retirada
+            do meu coração. Irei colocar cada pensamento e
+            sentimento em cada detalhe dessa carta.
+            Espero que goste...
+
+        </p>
+
+        <button class="botao" onclick="mostrarMensagem()">
+            ✨ Tem mais uma coisa...
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CORAÇÕES
+===================================================== -->
+
+<section class="coracoes" id="coracoes">
+
+    <div class="chuva-coracoes" id="chuvaCoracoes"></div>
+
+    <div class="palavras-estrelas" id="palavrasEstrelas"></div>
+
+    <div class="coracoes-conteudo">
+
+        <p class="subtitulo">
+            MAS ANTES...
+        </p>
+
+        <h2>Você é...</h2>
+
+        <p class="coracoes-intro">
+            Algumas coisas simplesmente não cabem
+            em uma única palavra.
+        </p>
+
+    </div>
+
+    <button class="botao continuar" onclick="irParaParte2()">
+        🔎 Continuar
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     PARTE 2 — INVESTIGAÇÃO
+===================================================== -->
+
+<section class="investigacao" id="investigacao">
+
+    <div class="ruido"></div>
+
+    <div class="investigacao-conteudo">
+
+        <p class="codigo-vermelho">
+            ARQUIVO Nº 02
+        </p>
+
+        <h2>Você encontrou uma coisa que não deveria estar aqui.</h2>
+
+        <p class="texto-investigacao">
+
+            Há algo escondido neste arquivo.
+            Mas ele não será entregue tão facilmente.
+
+        </p>
+
+        <div class="arquivo">
+
+            <p>
+                STATUS:
+                <span>ACESSO BLOQUEADO</span>
+            </p>
+
+            <p>
+                IDENTIDADE:
+                <span>NOAH</span>
+            </p>
+
+            <p>
+                NÍVEL:
+                <span>CONFIDENCIAL</span>
+            </p>
+
         </div>
 
 
-        <!-- TÍTULO -->
+        <div class="pistas">
 
-        <h1>
-            Uma carta para você
-        </h1>
-
-
-        <p class="subtitulo">
-            Mas existe uma condição para abri-la...
-        </p>
-
-
-
-        <!-- ========================= -->
-        <!-- CARTA BLOQUEADA -->
-        <!-- ========================= -->
-
-        <section
-            id="cartaBloqueada"
-            class="card">
-
-            <div class="cadeado">
-                🔒
-            </div>
-
-
-            <h2>
-                Ainda não...
-            </h2>
-
-
-            <p>
-                Existe uma carta esperando por você.
-            </p>
-
-
-            <div class="destino">
-
-                <span>
-                    📍 O lugar secreto é:
-                </span>
-
-                <strong id="nomeCidade">
-                    SUA CIDADE
-                </strong>
-
-            </div>
-
-
-            <p class="explicacao">
-
-                A carta só será liberada quando
-                você chegar ao lugar certo.
-
-            </p>
-
-
-            <button
-                onclick="verificarLocalizacao()">
-
-                📍 Verificar minha localização
-
+            <button class="pista" onclick="abrirPista(1)">
+                📼 Pista 01
             </button>
 
+            <button class="pista" onclick="abrirPista(2)">
+                🗝️ Pista 02
+            </button>
 
-            <p
-                id="status"
-                class="status">
+            <button class="pista" onclick="abrirPista(3)">
+                👁️ Pista 03
+            </button>
 
+        </div>
+
+
+        <div id="textoPista" class="texto-pista"></div>
+
+
+        <div class="senha-area">
+
+            <p>
+                Talvez as pistas tenham deixado
+                uma resposta escondida.
             </p>
 
-        </section>
+            <input
+                type="text"
+                id="senha"
+                placeholder="Digite a senha..."
+                autocomplete="off"
+            >
+
+            <button class="botao" onclick="verificarSenha()">
+                🔓 Desbloquear
+            </button>
+
+            <p id="resultadoSenha"></p>
+
+        </div>
 
 
+        <div id="investigacaoFinal" class="investigacao-final">
 
-        <!-- ========================= -->
-        <!-- CARTA DESBLOQUEADA -->
-        <!-- ========================= -->
+            <div class="arquivo-aberto">
 
-        <section
-            id="cartaDesbloqueada"
-            class="card carta">
+                <span class="arquivo-status">
+                    ACESSO CONCEDIDO
+                </span>
 
-            
-            <div class="celebracao">
+                <h3>ARQUIVO DESBLOQUEADO</h3>
 
-                ✨
-                💌
-                ✨
+                <p>
+                    Algumas coisas são escondidas
+                    não porque precisam permanecer em segredo...
+                </p>
+
+                <p>
+                    mas porque certas descobertas ficam
+                    mais bonitas quando são encontradas.
+                </p>
 
             </div>
 
+            <button class="botao" onclick="irParaParte3()">
+                🌌 Prosseguir
+            </button>
 
-            <h2>
-                Você chegou.
-            </h2>
+        </div>
 
+    </div>
 
-            <p class="chegada">
-
-                A localização foi confirmada.
-
-            </p>
+</section>
 
 
-            <div class="papel">
+<!-- =====================================================
+     PARTE 3 — UNIVERSO
+===================================================== -->
+
+<section class="universo" id="universo">
+
+    <div class="estrelas-fundo"></div>
+
+    <div class="nebulosa nebulosa-1"></div>
+    <div class="nebulosa nebulosa-2"></div>
+
+    <div class="universo-intro" id="universoIntro">
+
+        <p class="universo-mini">
+            ARQUIVO Nº 03
+        </p>
+
+        <h2>
+            Existem coisas<br>
+            que não cabem em palavras.
+        </h2>
+
+        <p>
+            Então talvez seja melhor olhar para o céu.
+        </p>
+
+        <button class="botao botao-fones" onclick="comecarUniverso()">
+            🎧 Coloque seus fones
+        </button>
+
+    </div>
 
 
-                <p>
-                    Oi, Noah. 💙
-                </p>
+    <!-- CÉU -->
 
+    <div class="ceu" id="ceu">
 
-                <p>
-                    Se você está lendo isso,
-                    significa que chegou até aqui.
-                </p>
+        <div class="via-lactea"></div>
 
+        <div class="observatorio">
 
-                <p>
-                    Essa carta estava esperando
-                    exatamente por esse momento.
-                </p>
+            <div class="telescopio">
 
+                <div class="telescopio-corpo"></div>
 
-                <p>
-                    Talvez seja engraçado pensar que
-                    uma carta poderia ficar escondida
-                    em uma cidade inteira.
-                </p>
-
-
-                <p>
-                    Mas agora você encontrou.
-                </p>
-
-
-                <p>
-                    E algumas coisas ficam muito
-                    mais especiais quando precisam
-                    ser encontradas.
-                </p>
-
-
-                <p class="assinatura">
-
-                    Com carinho. 💙
-
-                </p>
-
+                <div class="telescopio-ocular"></div>
 
             </div>
 
-
-        </section>
-
+        </div>
 
 
-        <footer>
+        <!-- estrelas clicáveis -->
 
-            Um pequeno segredo esperando
-            no lugar certo ✨
+        <div class="estrela estrela-1" onclick="clicarEstrela(1)">✦</div>
 
-        </footer>
+        <div class="estrela estrela-2" onclick="clicarEstrela(2)">✦</div>
+
+        <div class="estrela estrela-3" onclick="clicarEstrela(3)">✦</div>
+
+        <div class="estrela estrela-4" onclick="clicarEstrela(4)">✦</div>
+
+        <div class="estrela estrela-5" onclick="clicarEstrela(5)">✦</div>
+
+        <div class="estrela estrela-6" onclick="clicarEstrela(6)">✦</div>
+
+        <div class="estrela estrela-7" onclick="clicarEstrela(7)">✦</div>
+
+        <div class="estrela estrela-8" onclick="clicarEstrela(8)">✦</div>
+
+        <div class="estrela estrela-9" onclick="clicarEstrela(9)">✦</div>
+
+        <div class="estrela estrela-10" onclick="clicarEstrela(10)">✦</div>
 
 
-    </main>
+        <!-- constelação -->
+
+        <div class="constelacao" id="constelacao">
+
+            <div class="ponto p1"></div>
+            <div class="ponto p2"></div>
+            <div class="ponto p3"></div>
+            <div class="ponto p4"></div>
+            <div class="ponto p5"></div>
+            <div class="ponto p6"></div>
+            <div class="ponto p7"></div>
+            <div class="ponto p8"></div>
+            <div class="ponto p9"></div>
+            <div class="ponto p10"></div>
+
+            <div class="linha l1"></div>
+            <div class="linha l2"></div>
+            <div class="linha l3"></div>
+            <div class="linha l4"></div>
+            <div class="linha l5"></div>
+            <div class="linha l6"></div>
+            <div class="linha l7"></div>
+            <div class="linha l8"></div>
+
+        </div>
 
 
+        <div id="palavraEstrela" class="palavra-estrela"></div>
 
-    <script src="script.js"></script>
+
+        <div class="ceu-mensagem">
+
+            <p>
+                Encontre as estrelas.
+            </p>
+
+            <span>
+                Cada uma guarda uma palavra.
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- FINAL DA PARTE 3 -->
+
+    <div class="universo-final" id="universoFinal">
+
+        <div class="galaxia-final"></div>
+
+        <p>
+            No meio de um universo tão grande...
+        </p>
+
+        <h3>
+            é curioso encontrar alguém
+            que consegue fazer o meu pequeno
+            mundo parecer maior.
+        </h3>
+
+        <button class="botao" onclick="continuarSite()">
+            ✨ Continuar
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PARTE FUTURA
+===================================================== -->
+
+<section class="proxima-parte" id="proximaParte">
+
+    <p class="subtitulo">
+        CONTINUA...
+    </p>
+
+    <h2>
+        Ainda há muito mais para descobrir.
+    </h2>
+
+    <p>
+        Esta história ainda não terminou.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+<footer>
+
+    <p>
+        Feito especialmente para Noah ♡
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 
