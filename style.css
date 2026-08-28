@@ -1,17 +1,220 @@
+/* =====================================================
+   CONFIGURAÇÕES
+===================================================== */
+
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+
+    background: #080607;
+
+    color: #eee5e8;
+
+    overflow-x: hidden;
+}
+
+button,
+input {
+    font-family: Arial, sans-serif;
+}
+
+
+/* =====================================================
+   CORES PRINCIPAIS
+===================================================== */
+
+:root {
+
+    --preto: #080607;
+
+    --preto-2: #120b0e;
+
+    --vermelho: #c87989;
+
+    --vermelho-claro: #e5a7b4;
+
+    --vermelho-palido: #f4d5dc;
+
+    --vinho: #6f2639;
+
+    --branco: #fff5f7;
 
 }
 
 
-body {
+/* =====================================================
+   INÍCIO
+===================================================== */
+
+.inicio {
 
     min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(200, 121, 137, 0.35),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(111, 38, 57, 0.15),
+            transparent 40%
+        ),
+
+        #080607;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.inicio::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(229, 167, 180, 0.15);
+
+    animation: pulsar 5s infinite;
+
+}
+
+
+.inicio-conteudo {
+
+    max-width: 700px;
+
+    position: relative;
+
+    z-index: 2;
+
+    animation: aparecer 1.3s ease forwards;
+}
+
+
+.subtitulo {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: var(--vermelho-claro);
+
+    margin-bottom: 20px;
+}
+
+
+.inicio h1 {
+
+    font-size: 90px;
+
+    font-weight: normal;
+
+    color: var(--branco);
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 25px rgba(229, 167, 180, 0.25);
+}
+
+
+.frase {
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    color: #cbb9bf;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+.botao {
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #c87989,
+            #8f4257
+        );
+
+    color: white;
+
+    padding: 15px 28px;
+
+    border-radius: 30px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+
+    box-shadow:
+        0 8px 30px rgba(150, 60, 80, 0.18);
+}
+
+
+.botao:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 40px rgba(200, 121, 137, 0.3);
+
+    filter: brightness(1.1);
+}
+
+
+/* =====================================================
+   CARTA
+===================================================== */
+
+.carta {
+
+    min-height: 100vh;
+
+    padding: 100px 30px;
 
     display: flex;
 
@@ -19,468 +222,1333 @@ body {
 
     align-items: center;
 
-    padding: 25px;
-
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-
     background:
 
-        linear-gradient(
-            135deg,
-            #dcecff,
-            #eee3ff,
-            #e3f7ff
+        radial-gradient(
+            circle at center,
+            #1b0e13,
+            #080607 70%
         );
-
-
-    color: #4d5875;
-
-}
-
-
-.container {
-
-    width: 100%;
-
-    max-width: 650px;
-
-    text-align: center;
-
-}
-
-
-.envelope {
-
-    font-size: 80px;
-
-    animation:
-
-        flutuar
-        3s
-        ease-in-out
-        infinite;
-
-}
-
-
-h1 {
-
-    margin-top: 10px;
-
-    font-size: 42px;
-
-    color: #46516f;
-
-}
-
-
-.subtitulo {
-
-    margin-top: 12px;
-
-    margin-bottom: 30px;
-
-    font-size: 18px;
-
-    color: #737d97;
-
-}
-
-
-.card {
-
-    padding: 40px 30px;
-
-    background:
-        rgba(255,255,255,0.90);
-
-    border-radius: 28px;
-
-    border:
-        1px solid
-        rgba(255,255,255,0.9);
-
-
-    box-shadow:
-
-        0 18px 45px
-        rgba(70,80,130,0.17);
-
-
-    animation:
-
-        aparecer
-        .7s
-        ease;
-
-}
-
-
-.cadeado {
-
-    font-size: 72px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.card h2 {
-
-    font-size: 30px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.card p {
-
-    font-size: 17px;
-
-    line-height: 1.7;
-
-}
-
-
-.destino {
-
-    margin-top: 25px;
-
-    padding: 20px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 7px;
-
-
-    border-radius: 18px;
-
-    background:
-        #f3f0ff;
-
-}
-
-
-.destino span {
-
-    font-size: 15px;
-
-    color: #7b849d;
-
-}
-
-
-.destino strong {
-
-    font-size: 23px;
-
-    color: #6374b5;
-
-}
-
-
-.explicacao {
-
-    margin-top: 20px;
-
-    font-size: 15px !important;
-
-    color: #7b849d;
-
-}
-
-
-button {
-
-    margin-top: 28px;
-
-    padding:
-        16px 28px;
-
-
-    border: none;
-
-    border-radius: 50px;
-
-
-    background:
-        #879bd5;
-
-
-    color: white;
-
-
-    font-family:
-        Georgia,
-        serif;
-
-
-    font-size: 16px;
-
-
-    cursor: pointer;
-
-
-    transition: .3s;
-
-
-    box-shadow:
-
-        0 8px 20px
-        rgba(80,100,160,0.2);
-
-}
-
-
-button:hover {
-
-    transform:
-        translateY(-3px);
-
-
-    background:
-        #7187ca;
-
-}
-
-
-button:active {
-
-    transform:
-        scale(.96);
-
-}
-
-
-.status {
-
-    min-height: 30px;
-
-    margin-top: 22px;
-
-    font-size: 15px !important;
-
-}
-
-
-.carta {
-
-    display: none;
-
-}
-
-
-.celebracao {
-
-    font-size: 70px;
-
-    margin-bottom: 10px;
-
-
-    animation:
-
-        aparecer
-        .8s
-        ease;
-
-}
-
-
-.chegada {
-
-    color: #6579bd;
-
-    font-weight: bold;
-
 }
 
 
 .papel {
 
-    margin-top: 28px;
+    max-width: 750px;
 
-    padding: 30px;
+    background: #fdf8f9;
 
+    color: #3f3035;
 
-    background:
-        #faf7ff;
+    padding: 70px;
 
-
-    border-radius: 20px;
-
-
-    text-align: left;
-
+    border-radius: 5px;
 
     box-shadow:
+        0 20px 70px rgba(0,0,0,0.5);
 
-        inset
-        0 0 20px
-        rgba(100,90,150,.05);
+    position: relative;
 
+    animation: subir 1s ease;
 }
 
 
-.papel p {
+.papel::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+
+    border: 1px solid #e6cbd2;
+
+    pointer-events: none;
+}
+
+
+.data {
+
+    text-align: right;
+
+    color: #9a6674;
+
+    margin-bottom: 50px;
+}
+
+
+.papel h2 {
+
+    font-size: 40px;
+
+    font-weight: normal;
+
+    margin-bottom: 30px;
+}
+
+
+.papel p:not(.data) {
+
+    font-size: 18px;
+
+    line-height: 2;
 
     margin-bottom: 20px;
-
 }
 
 
-.papel .assinatura {
+.texto-quatro {
+
+    margin-top: 35px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid #ead7dc;
+}
+
+
+.papel .botao {
+
+    margin-top: 20px;
+}
+
+
+/* =====================================================
+   CORAÇÕES
+===================================================== */
+
+.coracoes {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            #2a1018,
+            #090607 75%
+        );
+}
+
+
+.coracoes-conteudo {
+
+    position: relative;
+
+    z-index: 20;
 
     text-align: center;
 
-    margin-top: 30px;
+    animation: aparecer 1.5s ease;
+}
 
-    margin-bottom: 0;
+
+.coracoes h2 {
+
+    font-size: 75px;
+
+    font-weight: normal;
+
+    color: var(--branco);
+
+    text-shadow:
+        0 0 25px rgba(229,167,180,0.3);
+}
 
 
-    color: #6579bd;
+.coracoes-intro {
 
-    font-weight: bold;
+    margin-top: 20px;
+
+    color: #c7b1b8;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   CHUVA INFINITA DE CORAÇÕES
+===================================================== */
+
+.chuva-coracoes {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+.coracao-caindo {
+
+    position: absolute;
+
+    top: -80px;
+
+    color: var(--vermelho-claro);
+
+    font-size: var(--tamanho);
+
+    opacity: 0;
+
+    animation:
+        cair var(--duracao) linear infinite;
+
+    animation-delay: var(--atraso);
+
+    left: var(--posicao);
+
+    text-shadow:
+        0 0 15px rgba(229,167,180,0.45);
+}
+
+
+@keyframes cair {
+
+    0% {
+
+        transform:
+            translateY(-100px)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+
+        transform:
+            translateY(120vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   PALAVRAS COMO ESTRELAS
+===================================================== */
+
+.palavra-estrela-fundo {
+
+    position: absolute;
+
+    color: #f2cbd3;
+
+    font-family: Arial, sans-serif;
+
+    font-size: var(--tamanho-palavra);
+
+    letter-spacing: 2px;
+
+    opacity: 0;
+
+    animation:
+        piscar var(--tempo) ease-in-out infinite;
+
+    animation-delay: var(--atraso);
+
+    left: var(--x);
+
+    top: var(--y);
+
+    text-shadow:
+        0 0 15px rgba(255,220,228,0.7);
+}
+
+
+@keyframes piscar {
+
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================================
+   BOTÃO CONTINUAR
+===================================================== */
+
+.continuar {
+
+    position: absolute;
+
+    bottom: 50px;
+
+    z-index: 30;
+}
+
+
+/* =====================================================
+   PARTE 2 — INVESTIGAÇÃO
+===================================================== */
+
+.investigacao {
+
+    min-height: 100vh;
+
+    padding: 100px 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            #1b0b10,
+            #050405
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.investigacao::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(255,255,255,0.015) 4px
+        );
+
+    pointer-events: none;
+}
+
+
+.investigacao-conteudo {
+
+    max-width: 850px;
+
+    width: 100%;
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+}
+
+
+.codigo-vermelho {
+
+    color: var(--vermelho-claro);
+
+    font-family: monospace;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+
+.investigacao h2 {
+
+    font-size: 48px;
+
+    font-weight: normal;
+
+    line-height: 1.3;
+
+    margin-bottom: 25px;
+}
+
+
+.texto-investigacao {
+
+    color: #ad9ba1;
+
+    line-height: 1.8;
+
+    font-size: 18px;
+}
+
+
+.arquivo {
+
+    margin: 40px auto;
+
+    max-width: 600px;
+
+    padding: 25px;
+
+    background: rgba(255,255,255,0.03);
+
+    border: 1px solid rgba(229,167,180,0.15);
+
+    text-align: left;
+
+    font-family: monospace;
+
+    line-height: 2;
+
+    color: #aa969d;
+}
+
+
+.arquivo span {
+
+    color: var(--vermelho-claro);
+}
+
+
+.pistas {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin: 30px 0;
+}
+
+
+.pista {
+
+    padding: 14px 20px;
+
+    background: #10090c;
+
+    color: #dcb8c1;
+
+    border: 1px solid #522632;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.pista:hover {
+
+    background: #261118;
+
+    transform: translateY(-3px);
+}
+
+
+.texto-pista {
+
+    min-height: 30px;
+
+    color: #dcaeba;
+
+    font-style: italic;
+
+    margin: 20px auto;
+
+    max-width: 650px;
+
+    line-height: 1.7;
+}
+
+
+.senha-area {
+
+    margin-top: 50px;
+
+    padding: 35px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+
+.senha-area p {
+
+    color: #9f8c93;
+
+    margin-bottom: 20px;
+}
+
+
+.senha-area input {
+
+    width: min(400px, 100%);
+
+    padding: 15px;
+
+    background: #0b0809;
+
+    border: 1px solid #58303b;
+
+    color: white;
+
+    outline: none;
+
+    border-radius: 5px;
+
+    margin-bottom: 15px;
+}
+
+
+.senha-area input:focus {
+
+    border-color: var(--vermelho);
+}
+
+
+#resultadoSenha {
+
+    min-height: 25px;
+
+    margin-top: 15px;
+}
+
+
+.investigacao-final {
+
+    display: none;
+
+    margin-top: 40px;
+
+    animation: aparecer 1s ease;
+}
+
+
+.arquivo-aberto {
+
+    padding: 40px;
+
+    border: 1px solid #7c3d4e;
+
+    background: rgba(124,61,78,0.08);
+
+    margin-bottom: 30px;
+}
+
+
+.arquivo-status {
+
+    color: #e6a6b4;
+
+    font-family: monospace;
+
+    letter-spacing: 3px;
+}
+
+
+.arquivo-aberto h3 {
+
+    font-size: 30px;
+
+    margin: 20px 0;
+}
+
+
+/* =====================================================
+   PARTE 3 — UNIVERSO
+===================================================== */
+
+.universo {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #020308;
+
+    color: white;
+}
+
+
+.estrelas-fundo {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            rgba(255,255,255,0.6) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        90px 90px,
+        150px 150px;
+
+    animation: estrelasMover 40s linear infinite;
+
+    opacity: 0.6;
+}
+
+
+@keyframes estrelasMover {
+
+    from {
+        background-position: 0 0, 0 0;
+    }
+
+    to {
+        background-position: 300px 500px, -400px 300px;
+    }
+}
+
+
+.nebulosa {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0.18;
+}
+
+
+.nebulosa-1 {
+
+    width: 500px;
+
+    height: 300px;
+
+    background: #91364d;
+
+    top: 20%;
+
+    left: -10%;
+}
+
+
+.nebulosa-2 {
+
+    width: 500px;
+
+    height: 350px;
+
+    background: #432a69;
+
+    right: -10%;
+
+    bottom: 20%;
+}
+
+
+.universo-intro {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    transition: 1.5s;
+}
+
+
+.universo-mini {
+
+    font-family: monospace;
+
+    letter-spacing: 5px;
+
+    color: #c894a2;
+
+    margin-bottom: 30px;
+}
+
+
+.universo-intro h2 {
+
+    font-size: clamp(45px, 7vw, 85px);
+
+    font-weight: normal;
+
+    line-height: 1.1;
+
+    margin-bottom: 30px;
+}
+
+
+.universo-intro > p:not(.universo-mini) {
+
+    font-size: 20px;
+
+    color: #aaa9b7;
+
+    margin-bottom: 40px;
+}
+
+
+/* =====================================================
+   CÉU
+===================================================== */
+
+.ceu {
+
+    display: none;
+
+    position: absolute;
+
+    inset: 0;
+
+    min-height: 100vh;
+
+    opacity: 0;
+
+    transition: 2s;
+
+    overflow: hidden;
+}
+
+
+.via-lactea {
+
+    position: absolute;
+
+    width: 150%;
+
+    height: 350px;
+
+    left: -25%;
+
+    top: 25%;
+
+    transform: rotate(-18deg);
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,0.2),
+            rgba(160,130,180,0.08) 35%,
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    opacity: 0.7;
+}
+
+
+/* =====================================================
+   TELESCÓPIO
+===================================================== */
+
+.observatorio {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 250px;
+
+    height: 300px;
+
+    opacity: 0.35;
+}
+
+
+.telescopio {
+
+    position: absolute;
+
+    bottom: 100px;
+
+    left: 40px;
+
+    width: 170px;
+
+    height: 60px;
+
+    transform: rotate(-25deg);
 
 }
 
+
+.telescopio-corpo {
+
+    width: 170px;
+
+    height: 50px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            #292831,
+            #0d0d12
+        );
+
+    border: 1px solid #575362;
+}
+
+
+.telescopio-ocular {
+
+    position: absolute;
+
+    right: -25px;
+
+    top: 12px;
+
+    width: 35px;
+
+    height: 35px;
+
+    background: #111117;
+
+    border-radius: 5px;
+}
+
+
+/* =====================================================
+   ESTRELAS CLICÁVEIS
+===================================================== */
+
+.estrela {
+
+    position: absolute;
+
+    font-size: 25px;
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 15;
+
+    transition: 0.4s;
+
+    animation: brilhoEstrela 2s infinite alternate;
+
+    text-shadow:
+        0 0 12px white,
+        0 0 30px #dcaeba;
+}
+
+
+.estrela:hover {
+
+    transform: scale(2);
+
+}
+
+
+.estrela-1 { top: 20%; left: 20%; }
+.estrela-2 { top: 32%; left: 35%; }
+.estrela-3 { top: 18%; left: 50%; }
+.estrela-4 { top: 42%; left: 65%; }
+.estrela-5 { top: 25%; left: 80%; }
+.estrela-6 { top: 55%; left: 15%; }
+.estrela-7 { top: 65%; left: 35%; }
+.estrela-8 { top: 58%; left: 55%; }
+.estrela-9 { top: 72%; left: 75%; }
+.estrela-10 { top: 48%; left: 88%; }
+
+
+@keyframes brilhoEstrela {
+
+    from {
+        opacity: 0.45;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+
+/* =====================================================
+   PALAVRA DA ESTRELA
+===================================================== */
+
+.palavra-estrela {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 30;
+
+    font-size: clamp(25px, 5vw, 50px);
+
+    letter-spacing: 5px;
+
+    color: white;
+
+    text-shadow:
+        0 0 15px #e5a7b4,
+        0 0 40px #e5a7b4;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   CONSTELAÇÃO BORBOLETA
+===================================================== */
+
+.constelacao {
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 300px;
+
+    left: 50%;
+
+    top: 48%;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 0;
+
+    transition: 3s;
+
+    z-index: 5;
+}
+
+
+.constelacao.mostrar {
+
+    opacity: 1;
+}
+
+
+.ponto {
+
+    position: absolute;
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 12px white,
+        0 0 25px #e5a7b4;
+}
+
+
+.p1 { left: 50%; top: 48%; }
+.p2 { left: 38%; top: 35%; }
+.p3 { left: 25%; top: 20%; }
+.p4 { left: 15%; top: 35%; }
+.p5 { left: 30%; top: 55%; }
+.p6 { left: 70%; top: 35%; }
+.p7 { left: 85%; top: 20%; }
+.p8 { left: 95%; top: 35%; }
+.p9 { left: 70%; top: 55%; }
+.p10 { left: 50%; top: 65%; }
+
+
+.linha {
+
+    position: absolute;
+
+    height: 1px;
+
+    background: rgba(255,255,255,0.45);
+
+    transform-origin: left center;
+}
+
+
+.l1 {
+    width: 90px;
+    left: 50%;
+    top: 48%;
+    transform: rotate(-145deg);
+}
+
+.l2 {
+    width: 80px;
+    left: 38%;
+    top: 35%;
+    transform: rotate(-140deg);
+}
+
+.l3 {
+    width: 70px;
+    left: 25%;
+    top: 20%;
+    transform: rotate(130deg);
+}
+
+.l4 {
+    width: 70px;
+    left: 15%;
+    top: 35%;
+    transform: rotate(35deg);
+}
+
+.l5 {
+    width: 80px;
+    left: 30%;
+    top: 55%;
+    transform: rotate(-10deg);
+}
+
+.l6 {
+    width: 90px;
+    left: 50%;
+    top: 48%;
+    transform: rotate(-35deg);
+}
+
+.l7 {
+    width: 80px;
+    left: 70%;
+    top: 35%;
+    transform: rotate(-40deg);
+}
+
+.l8 {
+    width: 70px;
+    left: 85%;
+    top: 20%;
+    transform: rotate(50deg);
+}
+
+
+/* =====================================================
+   MENSAGEM DO CÉU
+===================================================== */
+
+.ceu-mensagem {
+
+    position: absolute;
+
+    bottom: 40px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    z-index: 20;
+
+    color: #aaa8b3;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+.ceu-mensagem span {
+
+    font-size: 13px;
+
+    color: #777680;
+}
+
+
+/* =====================================================
+   FINAL UNIVERSO
+===================================================== */
+
+.universo-final {
+
+    display: none;
+
+    min-height: 100vh;
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 50;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(30,20,40,0.75),
+            #020308 75%
+        );
+
+    animation: aparecer 2s ease;
+}
+
+
+.universo-final p {
+
+    color: #aaa6b2;
+
+    font-size: 19px;
+
+    margin-bottom: 25px;
+}
+
+
+.universo-final h3 {
+
+    max-width: 750px;
+
+    font-size: clamp(30px, 5vw, 55px);
+
+    font-weight: normal;
+
+    line-height: 1.4;
+
+    margin-bottom: 45px;
+}
+
+
+/* =====================================================
+   PRÓXIMA PARTE
+===================================================== */
+
+.proxima-parte {
+
+    min-height: 500px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 50px 30px;
+
+    background:
+        linear-gradient(
+            #080607,
+            #170b10
+        );
+}
+
+
+.proxima-parte h2 {
+
+    font-size: clamp(35px, 6vw, 60px);
+
+    font-weight: normal;
+
+    margin: 20px 0;
+}
+
+
+.proxima-parte p:last-child {
+
+    color: #a9979d;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
 
 footer {
 
-    margin-top: 25px;
+    padding: 30px;
 
-    font-size: 14px;
+    text-align: center;
 
-    color: #7d87a0;
+    background: #030203;
 
+    color: #a98f98;
+
+    font-family: Arial, sans-serif;
 }
 
 
-@keyframes flutuar {
-
-    0%, 100% {
-
-        transform:
-            translateY(0);
-
-    }
-
-
-    50% {
-
-        transform:
-            translateY(-12px);
-
-    }
-
-}
-
+/* =====================================================
+   ANIMAÇÕES GERAIS
+===================================================== */
 
 @keyframes aparecer {
 
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(20px)
-            scale(.95);
-
+        transform: translateY(30px);
     }
-
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
+        transform: translateY(0);
     }
 
 }
 
 
-@keyframes desbloquear {
+@keyframes subir {
 
-    0% {
-
+    from {
         opacity: 0;
-
-        transform:
-            scale(.7)
-            rotate(-3deg);
-
+        transform: translateY(50px);
     }
 
-
-    60% {
-
-        transform:
-            scale(1.05)
-            rotate(1deg);
-
-    }
-
-
-    100% {
-
+    to {
         opacity: 1;
-
-        transform:
-            scale(1)
-            rotate(0);
-
+        transform: translateY(0);
     }
 
 }
 
 
-@media (max-width: 600px) {
+@keyframes pulsar {
 
-    h1 {
-
-        font-size: 34px;
-
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.2;
     }
 
-
-    .card {
-
-        padding:
-            30px 20px;
-
-    }
-
-}
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
     }
 
 }
 
 
-@media (max-width: 600px) {
+/* =====================================================
+   CELULAR
+===================================================== */
 
-    h1 {
+@media (max-width: 750px) {
 
-        font-size: 34px;
-
+    .inicio h1 {
+        font-size: 60px;
     }
 
-    .card {
-
-        padding:
-            30px 20px;
-
+    .frase {
+        font-size: 17px;
     }
 
-}
+    .papel {
+        padding: 50px 30px;
+    }
+
+    .papel h2 {
+        font-size: 32px;
+    }
+
+    .coracoes h2 {
+        font-size: 55px;
+    }
+
+    .investigacao h2 {
+        font-size: 35px;
+    }
+
+    .arquivo {
+        font-size: 12px;
+    }
+
+    .constelacao {
+        width: 300px;
+        height: 230px;
+    }
+
+    .observatorio {
+        display: none;
+    }
+
+    .estrela {
+        font-size: 20px;
+    }
+
+    .via-lactea {
+        width: 180%;
+        left: -40%;
+    }
+
+    .universo-intro h2 {
+        font-size: 45px;
+    }
 
 }
